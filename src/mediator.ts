@@ -366,6 +366,27 @@ function onMouseDown(event: MouseEvent & TouchEvent) {
       }
 
       if (startDrag) {
+        // THIS IS A STUPID FIX, PLS IGNORE XOX
+        const grabElement = getDraggableInfo(grabbedElement).element;
+
+        if (grabElement) {
+          const addTheClass = () => {
+            Utils.addClass(grabElement, 'aitum-dnd-drag');
+            window.document.removeEventListener('mousemove', addTheClass);
+          }
+
+          window.document.addEventListener('mousemove', addTheClass);
+
+          const removeTheClass = () => {
+            setTimeout(() => Utils.removeClass(grabElement, 'aitum-dnd-drag'), 300);
+            window.document.removeEventListener('mouseup', removeTheClass);
+            window.document.removeEventListener('mousemove', addTheClass);
+          }
+
+          window.document.addEventListener('mouseup', removeTheClass);
+        }
+
+
         handleDragStartConditions(e, container.getOptions().dragBeginDelay!, () => {
           Utils.clearSelection();
           initiateDrag(e, Utils.getElementCursor(event.target as Element)!);
