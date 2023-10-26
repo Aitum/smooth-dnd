@@ -1,6 +1,6 @@
 {
-  "name": "@ovos-media/smooth-dnd",
-  "version": "0.12.2",
+  "name": "aitum-smooth-dnd",
+  "version": "0.12.3",
   "description": "Drag and Drop library",
   "main": "./dist/index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ovos/smooth-dnd.git"
+    "url": "https://github.com/aitum/smooth-dnd.git"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
